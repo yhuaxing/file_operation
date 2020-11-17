@@ -14,9 +14,8 @@
         $rootdir[] = '/';
     }
     if(isset($_GET['mkdir'])){
-
+        $current = (isset($_GET['dir']) && in_array(substr($_GET['dir'],0,strpos($_GET['dir'],'/')+1),$rootdir)) ? rtrim($_GET['dir'],'/\\').'/':$rootdir[0];
     }
-    $current = (isset($_GET['dir']) && in_array(substr($_GET['dir'],0,strpos($_GET['dir'],'/')+1),$rootdir)) ? rtrim($_GET['dir'],'/\\').'/':$rootdir[0];
     $contents = scandir($current);
 ?>
 <!DOCTYPE html>
